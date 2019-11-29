@@ -11,6 +11,14 @@ public class Livro {
 	public Livro() {
 	}
 	
+	public String getStatus() {
+		if (disponibilidade.equals(Disponibilidade.ALUGADO)) {
+			return Status.RECEBER.name();
+		}else {
+			return Status.ALUGAR.name();
+		}
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -54,6 +62,11 @@ public class Livro {
 	public enum Disponibilidade{
 		ALUGADO,DISPONIVEL;
 	}
+	
+	public enum Status{
+		ALUGAR,RECEBER;
+	}
+	
 	
 	public String toString() {
 		return "Livro: "+ this.nome;

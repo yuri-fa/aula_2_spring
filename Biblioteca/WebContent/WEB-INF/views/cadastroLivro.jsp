@@ -9,17 +9,22 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
-		<h3>Cadastro de Livro</h3>
+		<h2 style="text-align: center;">Cadastro de Livro</h3>
 		<form action="adicionarLivro" method="post">
-			<label>Autor</label><br/>
-			<input type="text" name="autor"/><br/>
-			<label>Nome</label><br/>
-			<input type="text" name="nome"/><br/>
-			<label>Quantidade de paginas</label><br/>
-			<input type="number" name="numeroDePaginas"/><br/>
-			<label>Descrição</label><br/>
-			<input type="text" name="descricao"/><br/>
-			<input type="submit" value="Salvar"/>
+			<div style="display: flex;align-items: center;justify-content: center;">
+				<fieldset class="">
+				<legend>Dados do Livro</legend>
+					<label>Autor</label><br/>
+					<input type="text" name="autor"/><br/>
+					<label>Nome</label><br/>
+					<input type="text" name="nome"/><br/>
+					<label>Quantidade de paginas</label><br/>
+					<input type="number" name="numeroDePaginas"/><br/>
+					<label>Descrição</label><br/>
+					<input type="text" name="descricao"/><br/>
+					<input type="submit" value="Salvar"/>
+				</fieldset>
+			</div>
 		</form>
 	</body>
 </html>

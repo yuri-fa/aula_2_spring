@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,7 +38,7 @@ public class LivroController {
 	public String adicionarLivro(Livro livro) {
 		Optional<Livro> isValido = livrosList.stream().filter(livroTemp -> livroTemp.getNome().equals(livro.getNome())).findFirst();
 		if (isValido.isPresent()) {
-			System.out.println(livro.toString() + "ja est√° na lista");
+			System.out.println(livro.toString() + "ja est„o na lista");
 		}else {
 			livro.setDisponibilidade(Disponibilidade.DISPONIVEL);
 			livrosList.add(livro);
@@ -53,9 +54,14 @@ public class LivroController {
 		return model;
 	}
 	
-	public String modificaDisponibilidadeAlugado(Livro livro) {
-		livro.setDisponibilidade(livro.getDisponibilidade().equals(Disponibilidade.DISPONIVEL) ? Disponibilidade.ALUGADO : Disponibilidade.ALUGADO);
-		return "redirect:consultaLivros";
+	@GetMapping(value="/modificaDisponibilidadeAlugado/{nome}")
+	public String modificaDisponibilidadeAlugado(@PathVariable("nome") String nomeLivro) {
+		for (Livro livroTemp : livrosList) {
+			if (livroTemp.getNome().equals(nomeLivro)) {
+				livroTemp.setDisponibilidade(livroTemp.getDisponibilidade().equals(Disponibilidade.DISPONIVEL) ? Disponibilidade.ALUGADO : Disponibilidade.DISPONIVEL);
+			}
+		}
+		return "redirect:../consultaLivros";
 	}
 
 }

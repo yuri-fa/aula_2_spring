@@ -5,6 +5,19 @@
 	display: flex;
 	flex-direction: row;
     justify-content: end;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.itemMenu{
+    margin: 10px;
+}
+.cabecalho {
+	width: 100%;
+	height: 50 px;
+	display: flex;
+	flex-direction : row;
+    justify-content: end;
+	
 }
 
 #menu {
